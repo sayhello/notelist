@@ -1,0 +1,32 @@
+<div class="row marketing">
+  <div class="col-md-12">
+    <h1>
+      {{title}}
+    </h1>
+  </div>
+</div>
+
+<div class="row marketing">
+  <div class="col-md-12">
+    <form>
+      <div class="form-group">
+        <label for="note">Note</label>
+        <input type="text" class="form-control" id="note" placeholder="Note" #newNote>
+      </div>
+      <div class="form-group">
+        <label for="category">Category</label>
+        <input type="text" class="form-control" id="category" placeholder="Category" #newCategory>
+      </div>
+
+
+      <button type="submit" class="btn btn-default" (click)="addNote(newNote.value, newCategory.value)">Submit</button>
+    </form>
+
+  </div>
+</div>
+
+<div class="row marketing" *ngFor="let item of items | async">
+  <div class="col-md-12">
+    <h2>Note:{{ item.note | json }}</h2> Time: {{item.created | date:"dd.MM.y - HH:mm" }}<br> Category: {{item.category}}
+  </div>
+</div>
